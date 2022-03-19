@@ -14,7 +14,8 @@ def genNewNumberB(randomeNumberA, randomeNumberB):
     while randomeNumberA == randomeNumberB:
         if randomeNumberA == randomeNumberB:
             randomeNumberB= randint(0,listLenght)
-            return int(randomeNumberB)
+            
+            return randomeNumberB
         else:
             pass
        
