@@ -2,11 +2,18 @@ from random import randint
 from game_data import data
 from art import logo, vs
 
+
 listLenght= len(data)-1
 randomeNumberA=randint(0,listLenght)
-randomeNumberB= randomeNumberA - 1 # Thik of way to remove 1 list iteam each turn and make sure that numberA is never the same as numberB
-counter = 0
-game = True
+#data.remove()
+randomeNumberB= randint(0,listLenght) # Thik of way to remove 1 list iteam each turn and make sure that numberA is never the same as numberB
+
+def genNewNumberB():
+   
+    while randomeNumberA == randomeNumberB:
+        randomeNumberB= randint(0,listLenght)
+        return randomeNumberB
+        
 
 
 def compare():
@@ -21,6 +28,10 @@ def compare():
 
 
 
+randomeNumberB=genNewNumberB()
+counter = 0
+game = True
+
     
 while game:
     compare()
@@ -31,7 +42,7 @@ while game:
             print(f"{data[randomeNumberA]['name']} has more followers then {data[randomeNumberB]['name']}. You win")
             counter = counter +1
         elif data[randomeNumberA]['follower_count']<data[randomeNumberB]['follower_count']:
-            print(f"{data[randomeNumberA]['name']} has more followers then {data[randomeNumberB]['name']}. You loose")
+            print(f"{data[randomeNumberA]['name']} has less followers then {data[randomeNumberB]['name']}. You loose")
             game = False
 
     elif answer == "B":
@@ -39,7 +50,7 @@ while game:
             print(f"{data[randomeNumberB]['name']} has more followers then {data[randomeNumberA]['name']}. You win")
             counter = counter +1
         elif data[randomeNumberB]['follower_count']<data[randomeNumberA]['follower_count']:
-            print(f"{data[randomeNumberB]['name']} has more followers then {data[randomeNumberA]['name']}. You loose")
+            print(f"{data[randomeNumberB]['name']} has less followers then {data[randomeNumberA]['name']}. You loose")
             game = False
 
    
