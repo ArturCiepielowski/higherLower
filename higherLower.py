@@ -2,8 +2,9 @@ from random import randint
 from game_data import data
 from art import logo, vs
 
-randomeNumberA=randint(0,49)
-randomeNumberB= randomeNumberA - 1
+listLenght= len(data)-1
+randomeNumberA=randint(0,listLenght)
+randomeNumberB= randomeNumberA - 1 # Thik of way to remove 1 list iteam each turn and make sure that numberA is never the same as numberB
 counter = 0
 game = True
 
@@ -19,7 +20,7 @@ def compare():
     print("Who has more followers?")
 
 
-   
+
     
 while game:
     compare()
