@@ -1,20 +1,23 @@
 from random import randint
 from game_data import data
 from art import logo, vs
+import os
 
 
 listLenght= len(data)-1
 randomeNumberA=randint(0,listLenght)
 #data.remove()
-randomeNumberB= randint(0,listLenght) # Thik of way to remove 1 list iteam each turn and make sure that numberA is never the same as numberB
+randomeNumberB= randint(0,listLenght) 
 
-def genNewNumberB():
+def genNewNumberB(randomeNumberA, randomeNumberB):
    
     while randomeNumberA == randomeNumberB:
-        randomeNumberB= randint(0,listLenght)
-        return randomeNumberB
-        
-
+        if randomeNumberA == randomeNumberB:
+            randomeNumberB= randint(0,listLenght)
+            return int(randomeNumberB)
+        else:
+            pass
+       
 
 def compare():
     print(logo)
@@ -28,9 +31,11 @@ def compare():
 
 
 
-randomeNumberB=genNewNumberB()
+print(type(genNewNumberB(randomeNumberA, randomeNumberB)))
+
 counter = 0
 game = True
+clear = lambda: os.system('cls')
 
     
 while game:
@@ -41,6 +46,7 @@ while game:
         if data[randomeNumberA]['follower_count']>data[randomeNumberB]['follower_count']:
             print(f"{data[randomeNumberA]['name']} has more followers then {data[randomeNumberB]['name']}. You win")
             counter = counter +1
+            clear() 
         elif data[randomeNumberA]['follower_count']<data[randomeNumberB]['follower_count']:
             print(f"{data[randomeNumberA]['name']} has less followers then {data[randomeNumberB]['name']}. You loose")
             game = False
@@ -49,8 +55,11 @@ while game:
         if data[randomeNumberB]['follower_count']>data[randomeNumberA]['follower_count']:
             print(f"{data[randomeNumberB]['name']} has more followers then {data[randomeNumberA]['name']}. You win")
             counter = counter +1
+            clear() 
         elif data[randomeNumberB]['follower_count']<data[randomeNumberA]['follower_count']:
             print(f"{data[randomeNumberB]['name']} has less followers then {data[randomeNumberA]['name']}. You loose")
             game = False
+
+           
 
    
