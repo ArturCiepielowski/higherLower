@@ -25,6 +25,9 @@ def compare():
 
     print(f"Compare A: {data[randomeNumberA]['name']}, {data[randomeNumberA]['description']}, from {data[randomeNumberA]['country']} HINT {data[randomeNumberA]['follower_count']}")
     print(f"Correct gueses {counter}")
+    print(len(data))
+    print(f"A: {randomeNumberA}")
+    print(f"B: {randomeNumberB}")
     print(vs)
 
     print(f"Compare B: {data[randomeNumberB]['name']}, {data[randomeNumberB]['description']}, from {data[randomeNumberB]['country']} HINT {data[randomeNumberB]['follower_count']}")
@@ -47,7 +50,10 @@ while game:
         if data[randomeNumberA]['follower_count']>data[randomeNumberB]['follower_count']:
             print(f"{data[randomeNumberA]['name']} has more followers then {data[randomeNumberB]['name']}. You win")
             counter = counter +1
-            randomeNumberB= randint(0,listLenght) 
+            data.pop(randomeNumberB)
+            
+            randomeNumberB= randint(0,listLenght)
+            genNewNumberB(randomeNumberA, randomeNumberB) 
             clear() 
         elif data[randomeNumberA]['follower_count']<data[randomeNumberB]['follower_count']:
             print(f"{data[randomeNumberA]['name']} has less followers then {data[randomeNumberB]['name']}. You loose")
@@ -57,8 +63,11 @@ while game:
         if data[randomeNumberB]['follower_count']>data[randomeNumberA]['follower_count']:
             print(f"{data[randomeNumberB]['name']} has more followers then {data[randomeNumberA]['name']}. You win")
             counter = counter +1
+            data.pop(randomeNumberA)
+            
             randomeNumberA=randomeNumberB
-            randomeNumberB= randint(0,listLenght) 
+            randomeNumberB= randint(0,listLenght)
+            genNewNumberB(randomeNumberA, randomeNumberB) 
             clear() 
         elif data[randomeNumberB]['follower_count']<data[randomeNumberA]['follower_count']:
             print(f"{data[randomeNumberB]['name']} has less followers then {data[randomeNumberA]['name']}. You loose")
