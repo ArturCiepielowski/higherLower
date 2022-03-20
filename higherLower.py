@@ -47,6 +47,7 @@ while game:
         if data[randomeNumberA]['follower_count']>data[randomeNumberB]['follower_count']:
             print(f"{data[randomeNumberA]['name']} has more followers then {data[randomeNumberB]['name']}. You win")
             counter = counter +1
+            randomeNumberB= randint(0,listLenght) 
             clear() 
         elif data[randomeNumberA]['follower_count']<data[randomeNumberB]['follower_count']:
             print(f"{data[randomeNumberA]['name']} has less followers then {data[randomeNumberB]['name']}. You loose")
@@ -56,6 +57,8 @@ while game:
         if data[randomeNumberB]['follower_count']>data[randomeNumberA]['follower_count']:
             print(f"{data[randomeNumberB]['name']} has more followers then {data[randomeNumberA]['name']}. You win")
             counter = counter +1
+            randomeNumberA=randomeNumberB
+            randomeNumberB= randint(0,listLenght) 
             clear() 
         elif data[randomeNumberB]['follower_count']<data[randomeNumberA]['follower_count']:
             print(f"{data[randomeNumberB]['name']} has less followers then {data[randomeNumberA]['name']}. You loose")
