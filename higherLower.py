@@ -26,6 +26,7 @@ def compare():
     print(f"Compare A: {data[randomeNumberA]['name']}, {data[randomeNumberA]['description']}, from {data[randomeNumberA]['country']} HINT {data[randomeNumberA]['follower_count']}")
     print(f"Correct gueses {counter}")
     print(len(data))
+    print(listLenght)
     print(f"A: {randomeNumberA}")
     print(f"B: {randomeNumberB}")
     print(vs)
@@ -51,7 +52,7 @@ while game:
             print(f"{data[randomeNumberA]['name']} has more followers then {data[randomeNumberB]['name']}. You win")
             counter = counter +1
             data.pop(randomeNumberB)
-            
+            listLenght= len(data)-1
             randomeNumberB= randint(0,listLenght)
             genNewNumberB(randomeNumberA, randomeNumberB) 
             clear() 
@@ -64,7 +65,7 @@ while game:
             print(f"{data[randomeNumberB]['name']} has more followers then {data[randomeNumberA]['name']}. You win")
             counter = counter +1
             data.pop(randomeNumberA)
-            
+            listLenght= len(data)-1
             randomeNumberA=randomeNumberB
             randomeNumberB= randint(0,listLenght)
             genNewNumberB(randomeNumberA, randomeNumberB) 
